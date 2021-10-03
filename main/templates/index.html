@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список добавленных объектов</title>
+</head>
+
+<html>
+<body>
+<h1>Тестовое задание</h1>
+<h3>Список добавленных объектов</h3>
+
+<div>
+    {%for item in items %}
+
+    <p>Тестовые объекты: {{item.data}} </p></br>
+    {% endfor %}
+</div>
+<div>
+    <a href="{% url 'add'  %}">Добавить объекты</a>
+</div>
+
+
+</body>
+</html>

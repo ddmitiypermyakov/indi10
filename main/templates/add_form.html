@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление объектов</title>
+</head>
+
+<html>
+<body>
+
+<div>
+    <p><a href="{% url 'home'  %}">Главная страничка</a></p>
+</div>
+
+<form id="form" method="POST" action="{% url 'add' %}">
+    {% csrf_token %}
+    <input type="text" name="text_field">
+    <p>
+        <button type="submit">Сохранить</button>
+    </p>
+</form>
+<button onclick="add_field()">Добавить поле</button>
+
+
+<script>
+            var counter=1;
+            function add_field(){
+                // Получаем форму
+                var x = document.getElementById("form");
+                // Новое поле
+                var new_field = document.createElement("input");
+                // Тип данных поля 'text'
+                new_field.setAttribute("type", "text");
+                // Имя поля ввода
+
+                new_field.setAttribute("name", "text_field"+counter);
+                // место вставки элемента инпут
+                var pos = x.childElementCount;
+
+                // поле ввода в форму
+                x.insertBefore(new_field, x.childNodes[pos]);
+                counter++;
+            }
+
+
+
+</script>
+</body>
+</html>
